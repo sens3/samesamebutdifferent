@@ -12,10 +12,12 @@ SameSameButDifferent = {
 			$('.location-picker').removeClass('red');
 			$('.location-picker').removeClass('green');
 			$('.spinner').toggle();
+			that.bind();
 		});
 	},
 	
 	check: function(elem){
+		this.unbind();
 		if (elem.attr	('city') == this.location){
 			elem.addClass('green');
 			this.counter++;
@@ -26,12 +28,19 @@ SameSameButDifferent = {
 		}
 		$('.counter').html(this.counter);
 		this.fetch();
+	},
+	
+	bind: function(){
+		$('.location-picker').bind('click', function(){
+			SameSameButDifferent.check($(this));
+		});
+	},
+	
+	unbind: function(){
+		$('.location-picker').unbind('click');
 	}
 };
 
 $(function(){
 	SameSameButDifferent.fetch();
-	$('.location-picker').click(function(){
-		SameSameButDifferent.check($(this));
-	});
 });
