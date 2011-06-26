@@ -18,7 +18,10 @@ Instagram = {
 		var city = Array.random(cities.data);
 		var latLng = Array.random(city.latLngs);
 		Instagram.geoSearch(latLng, function(url){
-			render(url, city.name);
+			if (url)	
+				render(url, city.name);
+			else
+				Instagram.randomImageUrl(render);
 		});
 	},
 	
@@ -34,7 +37,10 @@ Instagram = {
 			res.on('end', function(){
 				var data = JSON.parse(searchResults).data;
 				var item = Array.random(data);
-				onEnd(item.images.standard_resolution.url);
+				if (item)
+					onEnd(item.images.standard_resolution.url);
+				else
+					onEnd();
 			});
 			
 		});
