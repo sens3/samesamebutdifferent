@@ -1,6 +1,6 @@
 body {
   padding: 10px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font: 14px Courier, sans-serif;
 	background-color: #FAF4E4;
 	width: 1000px;
 	margin: auto;
@@ -13,8 +13,12 @@ body {
 
 #picker span{
 	text-align: center;
-	width: 200px;
+	width: 275px;
 	text-align: center;
+}
+
+#picker .spinner-wrapper {
+	width: 50px;
 }
 
 .location-picker {
@@ -28,16 +32,19 @@ body {
 }
 
 #images img.instagram-image{
+	padding: 10px 0px;
 	width: 600px;
 	height: 600px;
 }
 
-.left {
+#picker .left {
 	float: left;
+	text-align: left;
 }
 
-.right {
+#picker .right {
 	float: right;
+	text-align: right;
 }
 
 .green {
