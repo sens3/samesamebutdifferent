@@ -1,0 +1,62 @@
+body {
+  padding: 10px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+	background-color: #FAF4E4;
+	width: 1000px;
+	margin: auto;
+}
+
+#content {
+	width: 600px;
+	margin: auto;
+}
+
+#picker span{
+	text-align: center;
+	width: 200px;
+	text-align: center;
+}
+
+.location-picker {
+	color: #0C2255;
+	font-size: 60px;
+	text-decoration: none;
+}
+
+#images {
+	float: left;
+}
+
+#images img.instagram-image{
+	width: 600px;
+	height: 600px;
+}
+
+.left {
+	float: left;
+}
+
+.right {
+	float: right;
+}
+
+.green {
+	color: #37A63A;
+}
+
+.red {
+	color: red;
+}
+
+.spinner {
+	width: 50px;
+	height: 50px;
+	display: none;
+}
+
+.counter {
+	font-size: 80px;
+	color: #8D8D8D;
+	width: 100%;
+	text-align: center;
+}
