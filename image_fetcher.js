@@ -1,12 +1,12 @@
 var mongoose = require('mongoose');
-mongoose.model('Images', Image);
-
 var Image = new mongoose.Schema({
 	url 			: String,
 	source		: String,
 	source_id : String,
 	cityname	: String
 });
+
+mongoose.model('Images', Image);
 
 var cities = require('./cities');
 var instagram = require('./instagram');
