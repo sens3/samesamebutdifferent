@@ -12,6 +12,8 @@ Cache = {
 				source.getImages(Array.random(city.latLngs), city.name, function(images){
 					images.forEach(function(image){
 						Image.find({source_id: image.source_id}, function(err, docs){
+							if(err)
+								console.log(err);
 							if(docs.length == 0){
 								image.save(function(err){
 									if(err)
