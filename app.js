@@ -4,8 +4,10 @@
  */
 
 var express = require('express');
-
-var instagram = require('./instagram');
+var https = require('https');
+var http = require('http');
+var imageFetcher = require('./image_fetcher');
+var mongoose = require('mongoose');
 
 var app = module.exports = express.createServer();
 
@@ -22,10 +24,12 @@ app.configure(function(){
 
 app.configure('development', function(){
   app.use(express.errorHandler({ dumpExceptions: true, showStack: true })); 
+	mongoose.connect('mongodb://localhost/samesamebutdifferent');
 });
 
 app.configure('production', function(){
   app.use(express.errorHandler({ dumpExceptions: true, showStack: true })); 
+	mongoose.connect('mongodb://app:sam3sam3@staff.mongohq.com:10098/app578531');
 });
 
 // Routes
@@ -37,7 +41,7 @@ app.get('/', function(req, res){
 });
 
 app.get('/image', function(req, res){
-	instagram.randomImageUrl(function(url, location){
+	imageFetcher.randomImageUrl(function(url, location){
 		res.send({url: url, location: location});
 	});
 });
