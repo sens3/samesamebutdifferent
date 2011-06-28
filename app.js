@@ -29,7 +29,7 @@ app.configure('development', function(){
 
 app.configure('production', function(){
   app.use(express.errorHandler({ dumpExceptions: true, showStack: true })); 
-	mongoose.connect('mongodb://app:sam3sam3@staff.mongohq.com:10098/app578531');
+	mongoose.connect('mongodb://heroku:7abz06mxte53yce3cyv08c@staff.mongohq.com:10098/app578531');
 });
 
 // Routes
