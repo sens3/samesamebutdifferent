@@ -38,7 +38,7 @@ app.configure('production', function(){
 
 app.get('/', function(req, res){
   res.render('index', {
-    title: 'same same but different'
+    title: 'SameSameButDifferent'
   });
 });
 
