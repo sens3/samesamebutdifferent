@@ -1,6 +1,7 @@
 SameSameButDifferent = {
 	
 	counter: 0,
+	viewedImageIds: [],
 	
 	fetch: function(){
 		$('.spinner').toggle();
@@ -8,6 +9,7 @@ SameSameButDifferent = {
 		$.get('/image', function(data){
 			$('#images').html("<img class='instagram-image' src='" + data.url + "' />");
 			that.location = data.location;
+			that.imageId = data.image_id
 			$('.note').html('');
 			$('.location-picker').removeClass('red');
 			$('.location-picker').removeClass('green');
@@ -17,6 +19,7 @@ SameSameButDifferent = {
 	},
 	
 	check: function(elem){
+		this.updateListOfViewedImages();
 		this.unbind();
 		if (elem.attr	('city') == this.location){
 			elem.addClass('green');
@@ -28,6 +31,15 @@ SameSameButDifferent = {
 		}
 		$('.counter').html(this.counter);
 		this.fetch();
+	},
+	
+	updateListOfViewedImages: function(){
+		if (this.viewedImageIds.indexOf(this.imageId) != -1){
+			$.get('/pull_images/' + this.imageId);
+			this.viewedImageIds = [];
+		}else{
+			this.viewedImageIds.push(this.imageId);
+		}
 	},
 	
 	bind: function(){

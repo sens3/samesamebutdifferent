@@ -1,4 +1,11 @@
-Cities = {	
+Cities = {
+	
+	findByName: function(cityname, onFound){
+		this.data.forEach(function(city){
+			if (city['name'] == cityname) onFound(city);
+		});
+	},
+	
 	data : [
 	{ name : 'berlin',
 		latLngs: [[52.55088865015941, 13.412933349609375],
@@ -107,3 +114,4 @@ Cities = {
 };
 
 exports.data = Cities.data;
+exports.findByName = Cities.findByName;

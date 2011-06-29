@@ -43,9 +43,16 @@ app.get('/', function(req, res){
 });
 
 app.get('/image', function(req, res){
-	imageFetcher.randomImageUrl(function(url, location){
-		res.send({url: url, location: location});
+	imageFetcher.randomImageUrl(function(url, location, image_id){
+		res.send({url: url, location: location, image_id: image_id});
 	});
+});
+
+app.get('/pull_images/:image_id', function(req, res){
+	console.log(req.params);
+	imageFetcher.pullImagesLike(req.params['image_id'], function(){
+		res.send();
+	})
 });
 
 var port = process.env.PORT || 3000;

@@ -8,20 +8,31 @@ var Image = new mongoose.Schema({
 
 mongoose.model('Images', Image);
 
+var Image = require('mongoose').model('Images');
+
 var cities = require('./cities');
-var instagram = require('./instagram');
-var flickr = require('./flickr');
 var cache = require('./cache');
 
 ImageFetcher = {
 		
-	randomImageUrl: function(render){
+	randomImageUrl: function(whenDone){
 		var city = Array.random(cities.data);
-		var source = Array.random([instagram, flickr]);
-		cache.getImageUrl(city, source, function(url){
-			render(url, city.name);
+		var source = Array.random(['instagram', 'flickr']);
+		cache.getImage(city, source, false, function(image){
+			whenDone(image.url, city.name, image.id);
 		});
 	},
+	
+	pullImagesLike: function(image_id, whenDone){
+		Image.find({_id:image_id}, function(err, docs){
+			if (err) throw err;
+			var image = docs[0];
+			var sourceName = image.source;
+			var city = cities.findByName(image.cityname, function(city){
+				cache.getImage(city, sourceName, true, whenDone);
+			});
+		});
+	}
 	
 };
 
@@ -30,4 +41,5 @@ Array.random = function(array){
 };
 
 exports.randomImageUrl = ImageFetcher.randomImageUrl;
+exports.pullImagesLike = ImageFetcher.pullImagesLike;
 
