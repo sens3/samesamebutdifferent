@@ -25,7 +25,7 @@ app.configure(function(){
 app.configure('development', function(){
 	console.log('running development environment');
   app.use(express.errorHandler({ dumpExceptions: true, showStack: true })); 
-	// mongoose.connect('mongodb://localhost/samesamebutdifferent');
+	mongoose.connect('mongodb://localhost/samesamebutdifferent');
 });
 
 app.configure('production', function(){
