@@ -23,11 +23,13 @@ app.configure(function(){
 });
 
 app.configure('development', function(){
+	console.log('running development environment');
   app.use(express.errorHandler({ dumpExceptions: true, showStack: true })); 
-	mongoose.connect('mongodb://localhost/samesamebutdifferent');
+	// mongoose.connect('mongodb://localhost/samesamebutdifferent');
 });
 
 app.configure('production', function(){
+	console.log('running production environment');
   app.use(express.errorHandler({ dumpExceptions: true, showStack: true })); 
 	mongoose.connect('mongodb://heroku:7abz06mxte53yce3cyv08c@staff.mongohq.com:10098/app578531');
 });
