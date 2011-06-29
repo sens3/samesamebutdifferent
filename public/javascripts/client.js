@@ -4,7 +4,7 @@ SameSameButDifferent = {
 	viewedImageIds: [],
 	
 	fetch: function(){
-		$('.spinner').toggle();
+		$('.loader').toggle();
 		var that = this;
 		$.get('/image', function(data){
 			$('#images').html("<img class='instagram-image' src='" + data.url + "' />");
@@ -13,7 +13,7 @@ SameSameButDifferent = {
 			$('.note').html('');
 			$('.location-picker').removeClass('red');
 			$('.location-picker').removeClass('green');
-			$('.spinner').toggle();
+			$('.loader').toggle();
 			that.bind();
 		});
 	},

@@ -1,5 +1,4 @@
 body {
-  padding: 10px;
   font: 14px Courier, sans-serif;
 	background-color: #FAF4E4;
 	width: 1000px;
@@ -9,6 +8,13 @@ body {
 #content {
 	width: 600px;
 	margin: auto;
+}
+
+.loader {
+	position: absolute;
+	top: 10px;
+	left: 10px;
+	display: none;
 }
 
 #picker span{
@@ -21,20 +27,24 @@ body {
 	width: 50px;
 }
 
-.location-picker {
+a.location-picker {
 	color: #0C2255;
 	font-size: 60px;
 	text-decoration: none;
 }
 
-#images {
-	float: left;
+a:hover.location-picker {
+	color: #37A63A;
 }
 
-#images img.instagram-image{
-	padding: 10px 0px;
-	width: 600px;
+#images {
+	text-align: center;
 }
+
+#images img{
+	max-width: 600px;
+}
+
 
 #picker .left {
 	float: left;
@@ -44,6 +54,14 @@ body {
 #picker .right {
 	float: right;
 	text-align: right;
+}
+
+#picker .or{
+	float: left;
+	width: 50px;
+	margin-top: 20px;
+	font-size: 30px;
+	text-align: center;
 }
 
 .green {
