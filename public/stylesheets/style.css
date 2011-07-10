@@ -18,9 +18,18 @@ body {
 	cursor: pointer;
 }
 
+.head .short{
+	font-style: italic;
+	color: #B7B3A8;
+}
+
+.head .full{
+	display: none;
+}
+
 .loader {
 	position: absolute;
-	top: 100px;
+	top: 140px;
 	left: 20px;
 	display: none;
 }
