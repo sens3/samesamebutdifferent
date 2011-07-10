@@ -33,11 +33,10 @@ SameSameButDifferent = {
 	},
 	
 	updateListOfViewedImages: function(){
-		var imageIds = store.get('viewedImageIds');
-		if (imageIds.indexOf(this.imageId) != -1){
+		if (store.get(this.imageId)){
 			$.get('/pull_images/' + this.imageId);
 		}else{
-			store.set('viewedImageIds', imageIds + this.imageId + '|')
+			store.set(this.imageId, true);
 		}
 	},
 	
@@ -53,9 +52,7 @@ SameSameButDifferent = {
 };
 
 $(function(){
-	if (store.get('viewedImageIds') == undefined)	
-		store.set('viewedImageIds', '');
-		
+	
 	SameSameButDifferent.fetch();
 	
 	$('.head').click(function(){
