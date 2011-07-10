@@ -9,7 +9,6 @@ SameSameButDifferent = {
 			$('#images').html("<img class='instagram-image' src='" + data.url + "' />");
 			that.location = data.location;
 			that.imageId = data.image_id
-			$('.note').html('');
 			$('.location-picker').removeClass('red');
 			$('.location-picker').removeClass('green');
 			$('.loader').toggle();

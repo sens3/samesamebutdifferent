@@ -39,6 +39,10 @@ body {
 	display: none;
 }
 
+#picker{
+	width: 100%;
+}
+
 #picker span{
 	text-align: center;
 	width: 275px;
@@ -59,9 +63,14 @@ a.location-picker {
 	text-decoration: none;
 }
 
+.question_mark{
+	font-size: 40px;
+	color: #A29F94;
+}
 
 #images {
 	text-align: center;
+	width: 600px;
 }
 
 #images img{
