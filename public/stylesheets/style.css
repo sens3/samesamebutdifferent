@@ -10,10 +10,18 @@ body {
 	margin: auto;
 }
 
+.head {
+	position: absolute;
+	top: 20px;
+	left: 20px;
+	width: 400px;
+	cursor: pointer;
+}
+
 .loader {
 	position: absolute;
-	top: 10px;
-	left: 10px;
+	top: 100px;
+	left: 20px;
 	display: none;
 }
 
@@ -83,4 +91,10 @@ a:hover.location-picker {
 	color: #8D8D8D;
 	width: 100%;
 	text-align: center;
+}
+
+#footer{
+	position: absolute;
+	left: 20px;
+	bottom: 20px;
 }

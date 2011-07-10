@@ -55,4 +55,9 @@ SameSameButDifferent = {
 
 $(function(){
 	SameSameButDifferent.fetch();
+	
+	$('.head').click(function(){
+		this.innerHTML = "Pulls images from Flickr and Instagram that are geo-tagged to Berlin or New York. Guess where they're from. You can earn points. That's it."
+	});
+	
 });
