@@ -1,7 +1,6 @@
 SameSameButDifferent = {
 	
 	counter: 0,
-	viewedImageIds: [],
 	
 	fetch: function(){
 		$('.loader').toggle();
@@ -34,11 +33,11 @@ SameSameButDifferent = {
 	},
 	
 	updateListOfViewedImages: function(){
-		if (this.viewedImageIds.indexOf(this.imageId) != -1){
+		var imageIds = store.get('viewedImageIds');
+		if (imageIds.indexOf(this.imageId) != -1){
 			$.get('/pull_images/' + this.imageId);
-			this.viewedImageIds = [];
 		}else{
-			this.viewedImageIds.push(this.imageId);
+			store.set('viewedImageIds', imageIds + this.imageId + '|')
 		}
 	},
 	
@@ -54,6 +53,9 @@ SameSameButDifferent = {
 };
 
 $(function(){
+	if (store.get('viewedImageIds') == undefined)	
+		store.set('viewedImageIds', '');
+		
 	SameSameButDifferent.fetch();
 	
 	$('.head').click(function(){
