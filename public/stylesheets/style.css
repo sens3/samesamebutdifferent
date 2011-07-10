@@ -3,6 +3,7 @@ body {
 	background-color: #FAF4E4;
 	width: 1000px;
 	margin: auto;
+	color: #0C2255;
 }
 
 #content {
@@ -48,15 +49,16 @@ body {
 	width: 50px;
 }
 
-a.location-picker {
+a{
 	color: #0C2255;
+	cursor: pointer;
+}
+
+a.location-picker {
 	font-size: 60px;
 	text-decoration: none;
 }
 
-a:hover.location-picker {
-	color: #37A63A;
-}
 
 #images {
 	text-align: center;
