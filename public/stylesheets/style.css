@@ -20,7 +20,11 @@ body {
 
 .head .short{
 	font-style: italic;
-	color: #B7B3A8;
+	color: #A29F94;
+}
+
+.head .short:hover{
+	text-decoration: underline;
 }
 
 .head .full{
@@ -106,4 +110,5 @@ a:hover.location-picker {
 	position: absolute;
 	left: 20px;
 	bottom: 20px;
+	color: #A29F94;
 }
