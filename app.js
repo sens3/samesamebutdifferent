@@ -9,7 +9,7 @@ var http = require('http');
 var imageFetcher = require('./image_fetcher');
 var mongoose = require('mongoose');
 
-var app = module.exports = express.createServer();
+var app = express();
 
 // Configuration
 
@@ -38,6 +38,7 @@ app.configure('production', function(){
 
 app.get('/', function(req, res){
   res.render('index', {
+    layout: "layout.jade",
     title: 'SameSameButDifferent'
   });
 });
@@ -58,4 +59,4 @@ app.get('/pull_images/:image_id', function(req, res){
 var port = process.env.PORT || 3000;
 
 app.listen(port);
-console.log("Express server listening on port %d", app.address().port);
+console.log("Express server listening on port %d", port);

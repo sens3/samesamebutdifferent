@@ -1,10 +1,11 @@
 !!!
 html
   head
-    title= title
+    title=title
     link(rel='stylesheet', href='/stylesheets/style.css')
     script(src='http://code.jquery.com/jquery-1.6.1.min.js')
     script(src='/javascripts/client.js')
     script(src='/javascripts/store.js')
     script(src='/javascripts/ga.js')
-  body!= body
+  body
+    block body

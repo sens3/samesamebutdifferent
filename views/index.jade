@@ -1,32 +1,34 @@
-div#content
-	div.head
-		div.short how does this work?
-		div.full Pulls images from Flickr and Instagram that are geo-tagged to Berlin or New York. 
-			p Guess where they're from. You can earn points. That's it.
-	span.loader loading image...
-	div.counter 0
-	div#picker
-		span.left	
-			a(href='#', class='location-picker', city='nyc') NEWYORK
-		span.or.red or
-		span.right	
-			a(href='#', class='location-picker', city='berlin') BERLIN
-			span(class='question_mark') ?
-	span(class='note')
-	div#images
+extends layout
+block body
+  div#content
+    div.head
+      div.short how does this work?
+      div.full Pulls images from Flickr and Instagram that are geo-tagged to Berlin or New York. 
+        p Guess where they're from. You can earn points. That's it.
+    span.loader loading image...
+    div.counter 0
+    div#picker
+      span.left	
+        a(href='#', class='location-picker', city='nyc') NEWYORK
+      span.or.red or
+      span.right	
+        a(href='#', class='location-picker', city='berlin') BERLIN
+        span(class='question_mark') ?
+    span(class='note')
+    div#images
 
-	div#footer
-		p
-			| built by 
-			a(href='http://sens3.com') sens3
-		p
-			| using 
-			a(href='http://nodejs.org') node
-		p	
-			| and
-			a(href='http://expressjs.com') express
-		p	
-			| and
-			a(href='http://mongoosejs.com') mongoose
-		p	
-			| (and more..)
+    div#footer
+      p
+        | built by 
+        a(href='http://sens3.com') sens3
+      p
+        | using 
+        a(href='http://nodejs.org') node
+      p	
+        | and
+        a(href='http://expressjs.com') express
+      p	
+        | and
+        a(href='http://mongoosejs.com') mongoose
+      p	
+        | (and more..)
