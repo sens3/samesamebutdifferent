@@ -10,9 +10,9 @@ Cache = {
 		source = require('./' + sourceName);
 		Image.find({cityname: city.name, source: source.name}, function(err, docs){
 			if (err) throw err;
-			if (!skipCache && docs.length != 0){
+			if ( !skipCache && docs.length != 0 ) {
 				onEnd(Array.random(docs));
-			}else{
+			} else {
 				source.getImages(Array.random(city.latLngs), city.name, function(images){
 					images.forEach(function(image){
 						Image.find({source_id: image.source_id}, function(err, docs){
@@ -26,7 +26,12 @@ Cache = {
 								console.log('Image ' + image.id + ' already exists, NOT SAVED!');
 						});
 					});	
-					onEnd(images[0]);
+					if (images.length != 0) {
+					  onEnd(images[0]);
+					} else {
+					  throw "No images from " + sourceName + " for " + city.name;
+					}
+					  
 				});	
 			}
 		});

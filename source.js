@@ -1,8 +1,9 @@
 Source = {
+  // timestamp within the last 6 days
 	timeStamp: function(){
 		var now = Math.round((new Date()).getTime() / 1000);
-		var past = 1262304000;
-		return past + Math.floor(Math.random()*(past-now));
+		var sixDays = 600000;
+		return now - Math.floor(Math.random() * sixDays);
 	},
 	
 	distance: function(){
